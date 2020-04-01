@@ -162,7 +162,7 @@ const useSelection = () => {
   return [ selected, toggle ];
 };
 
-const CourseList = ({ courses }) => {
+const CourseList = ({ courses, user }) => {
   const [term, setTerm] = useState('Fall');
   const [selected, toggle] = useSelection();
   const termCourses = courses.filter(course => term === getCourseTerm(course));
@@ -171,10 +171,10 @@ const CourseList = ({ courses }) => {
     <React.Fragment>
       <TermSelector state={ { term, setTerm } } />
       <Button.Group>
-        { termCourses.map(course =>
-           <Course key={ course.id } course={ course }
-             state={ { selected, toggle } }
-             user={ user } />) }
+      { termCourses.map(course =>
+         <Course key={ course.id } course={ course }
+           state={ { selected, toggle } }
+           user={ user } />) }
       </Button.Group>
     </React.Fragment>
   );
