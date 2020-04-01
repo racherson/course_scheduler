@@ -129,10 +129,10 @@ const saveCourse = (course, meets) => {
     .catch(error => alert(error));
 };
 
-const Course = ({ course, state }) => (
+const Course = ({ course, state, user }) => (
   <Button color={ buttonColor(state.selected.includes(course)) }
     onClick={ () => state.toggle(course) }
-    onDoubleClick={ () => moveCourse(course) }
+    onDoubleClick={ user ? () => moveCourse(course) : null }
     disabled={ hasConflict(course, state.selected) }
     >
     { getCourseTerm(course) } CS { getCourseNumber(course) }: { course.title }
@@ -173,7 +173,8 @@ const CourseList = ({ courses }) => {
       <Button.Group>
         { termCourses.map(course =>
            <Course key={ course.id } course={ course }
-             state={ { selected, toggle } } />) }
+             state={ { selected, toggle } }
+             user={ user } />) }
       </Button.Group>
     </React.Fragment>
   );
