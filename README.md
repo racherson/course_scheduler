@@ -1,5 +1,6 @@
 # CS Course Scheduler
 This app is hosted using Firebase at https://course-scheduler-19577.web.app.
+The app is a CS course scheduler. You can filter the course offerings by quarter. When you select courses, it will remove any courses with time conflicts. When logged in with Google, you can double click on any course to change the time that course is offered.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
